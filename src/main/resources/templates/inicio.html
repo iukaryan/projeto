@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html
+	layout:decorate="~{layout}">
+
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE-edge" />
+<meta name="viewport"
+	content="width-device-width, initial-scale=1, shrink-to-fit=no" />
+
+<title>Inicio</title>
+</head>
+<body>
+	<section layout:fragment="corpo">
+		<div class="container h-100">
+			<div class="row h-100 justify-content-center align-items-center">
+				<div class="card bg-dark" style="width: 18rem;" sec:authorize="hasAuthority('ADMIN')">
+					<div class="card-body">
+						<h5 class="card-title" style="color: white">Cadastrar Usuário</h5>
+						<button class="btn btn-warning">
+							<a href="/usuarios/cadastro" >Cadastrar</a>
+						</button>
+
+						<h5 class="card-title" style="color: white">Cadastrar
+							Personagem</h5>
+						<button class="btn btn-warning">
+							<a href="/personagens/cadastro">Cadastrar</a>
+						</button>
+
+						<h5 class="card-title" style="color: white">Cadastrar Raça</h5>
+						<button class="btn btn-warning">
+							<a href="/racas/cadastro">Cadastrar</a>
+						</button>
+
+						<h5 class="card-title" style="color: white">Cadastrar Jogo</h5>
+						<button class="btn btn-warning">
+							<a href="/jogos/cadastro">Cadastrar</a>
+						</button>
+
+					</div>
+				</div>
+				<div class="card bg-dark" style="width: 18rem;">
+					<div class="card-body">
+						<h5 class="card-title" style="color: white">Buscar Usuário</h5>
+						<button class="btn btn-warning">
+							<a href="/usuarios/busca">Buscar</a>
+						</button>
+
+						<h5 class="card-title" style="color: white">Buscar Personagem</h5>
+						<button class="btn btn-warning">
+							<a href="/personagens/busca">Buscar</a>
+						</button>
+
+						<h5 class="card-title" style="color: white">Buscar Raça</h5>
+						<button class="btn btn-warning">
+							<a href="/racas/busca">Buscar</a>
+						</button>
+
+						<h5 class="card-title" style="color: white">Buscar Jogo</h5>
+						<button class="btn btn-warning">
+							<a href="/jogos/busca">Buscar</a>
+						</button>
+
+					</div>
+				</div>
+			</div>
+			<div >
+				<form th:action="@{/logout}" method="post">
+					<input class="btn btn-warning"	 type="submit" value="Sair">
+				</form>
+			</div>
+		</div>
+	</section>
+</body>
+</html>

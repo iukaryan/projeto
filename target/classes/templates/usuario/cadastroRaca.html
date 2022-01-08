@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html
+	layout:decorate="~{layout}">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE-edge" />
+<meta name="viewport"
+	content="width-device-width, initial-scale=1, shrink-to-fit=no" />
+<title>Cadastro de Usuario</title>
+</head>
+
+<body>
+<section layout:fragment="corpo">
+	<div class="container h-100">
+		<div class="row h-100 justify-content-center align-items-center">
+			<div class="card bg-dark" style="width: 30rem;">
+				<h4 style="color: orange">Cadastro de Raça</h4>
+
+			<div th:replace="fragments/mensagens"></div>
+
+				<form th:action="@{/racas/salvar}" th:object="${raca}"
+					method="post" enctype="multipart/form-data">
+
+					<input type="hidden" th:field="${raca.id}" />
+
+					<table>
+						<tr>
+							<td>Nome da Raça:</td>
+							<td><input type="text" th:field="${raca.nome}"></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td><input type="submit" class="btn btn-warning"
+								style="margin: 5px"
+								th:value="${raca.id} == 0 ? Cadastrar : Editar"> <input
+								class="btn btn-warning" style="margin: 5px" type="submit"
+								value="Cancelar" formaction="/" formmethod="get"></td>
+						</tr>
+					</table>
+				</form>
+			</div>
+		</div>
+		</div>
+		</section>
+</body>
+</html>

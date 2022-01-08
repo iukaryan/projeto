@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html
+	layout:decorate="~{layout}">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE-edge" />
+<meta name="viewport"
+	content="width-device-width, initial-scale=1, shrink-to-fit=no" />
+<title>Cadastro de Usuario</title>
+</head>
+
+<body>
+	<section layout:fragment="corpo">
+	<div class="container h-100">
+		<div class="row h-100 justify-content-center align-items-center">
+			<div class="card bg-dark" style="width: 18rem;">
+				<div class="card-body">
+					<h4 style="color: orange">Cadastro de Usuário</h4>
+
+					<div th:replace="fragments/mensagens"></div>
+
+					<form th:action="@{/usuarios/salvar}" th:object="${usuario}"
+						method="post">
+
+						<input type="hidden" th:field="${usuario.id}" />
+
+						<table>
+							<tr>
+								<td>Nome:</td>
+								<td><input type="text" th:field="${usuario.nome}"></td>
+							</tr>
+							<tr>
+								<td>Email:</td>
+								<td><input type="email" th:field="${usuario.email}"></td>
+							</tr>
+							<tr>
+								<td>Senha:</td>
+								<td><input type="password" th:field="${usuario.senha}">
+								</td>
+							</tr>
+							<tr>
+								<td>Cidade:</td>
+								<td><input type="text" th:field="${usuario.cidade}">
+								</td>
+							</tr>
+
+							<tr>
+								<td>Estado</td>
+								<td><select id="UF" name="UF" th:field="${usuario.estado}">
+										<option th:value="null">Selecione</option>
+										<option th:value="AC">Acre</option>
+										<option th:value="AL">Alagoas</option>
+										<option th:value="AP">Amapá</option>
+										<option th:value="AM">Amazonas</option>
+										<option th:value="BA">Bahia</option>
+										<option th:value="CE">Ceará</option>
+										<option th:value="DF">Distrito Federal</option>
+										<option th:value="ES">Espirito Santo</option>
+										<option th:value="GO">Goiás</option>
+										<option th:value="MA">Maranhão</option>
+										<option th:value="MS">Mato Grosso do Sul</option>
+										<option th:value="MT">Mato Grosso</option>
+										<option th:value="MG">Minas Gerais</option>
+										<option th:value="PA">Pará</option>
+										<option th:value="PB">Paraíba</option>
+										<option th:value="PR">Paraná</option>
+										<option th:value="PE">Pernambuco</option>
+										<option th:value="PI">Piauí</option>
+										<option th:value="RJ">Rio de Janeiro</option>
+										<option th:value="RN">Rio Grande do Norte</option>
+										<option th:value="RS">Rio Grande do Sul</option>
+										<option th:value="RO">Rondônia</option>
+										<option th:value="RR">Roraima</option>
+										<option th:value="SC">Santa Catarina</option>
+										<option th:value="SP">São Paulo</option>
+										<option th:value="SE">Sergipe</option>
+										<option th:value="TO">Tocantins</option>
+								</select></td>
+							</tr>
+
+							<tr>
+								<td></td>
+								<td><input type="submit" class="btn btn-warning"
+									style="margin: 5px"
+									th:value="${usuario.id} == 0 ? Cadastrar : Editar"> <input
+									class="btn btn-warning" style="margin: 5px" type="submit"
+									value="Cancelar" formaction="/" formmethod="get"></td>
+							</tr>
+						</table>
+
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+</body>
+</html>
